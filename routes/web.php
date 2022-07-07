@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/graphql', function () {
+    return redirect()->route('graphql', [
+        'query' => \GraphQL\Type\Introspection::getIntrospectionQuery(),
+    ]);
+});
